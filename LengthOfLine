@@ -1,0 +1,39 @@
+// Inputs: X1, Y1, X2, Y2
+//Outputs:length
+// finds the length of the line via the inputs the user enters
+
+
+#include "stdafx.h"
+#include <iostream>
+#include <cmath>
+#include <iomanip>;
+using namespace std;
+double LengthOfLine(double X1, double Y1, double X2, double Y2);// function to compute the length
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	// variables created
+	double X1, Y1, X2, Y2, length;
+	
+	// asks user for input and reads it in
+	cout << "Enter X1 Y1 X2 Y2 seperated by spaces: ";
+	cin >> X1 >> Y1 >> X2 >> Y2;
+
+	// sets length equal to value of the function
+	length = LengthOfLine(X1, Y1, X2,Y2);
+
+	// outputs the length with 4 decimal places
+	cout << setiosflags(ios::fixed) << setiosflags(ios::showpoint);
+	cout << "The length of the line is " << setprecision(4)<< length << endl;
+	return 0;
+}
+double LengthOfLine(double X1, double Y1, double X2, double Y2) // calculates the length of the line
+{
+	double x_total, y_total, total;
+	x_total = X1 - X2;
+	y_total = Y1 - Y2;
+	total = sqrt((x_total * x_total) + (y_total* y_total));
+	return total;
+}
+
+
